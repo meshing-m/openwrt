@@ -132,6 +132,10 @@ platform_do_upgrade() {
 	wallys,dr40x9)
 		nand_do_upgrade "$1"
 		;;
+	tplink,deco-m9plus-v2)
+		CI_UBIPART="rootfs_1"
+		nand_do_upgrade "$1"
+		;;	
 	alfa-network,ap120c-ac)
 		part="$(awk -F 'ubi.mtd=' '{printf $2}' /proc/cmdline | sed -e 's/ .*$//')"
 		if [ "$part" = "rootfs1" ]; then
